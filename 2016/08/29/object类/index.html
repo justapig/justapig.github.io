@@ -4,14 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java内部类 | Mrs.Yu</title>
+    <title>object类 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="成员内部类的使用方法：
-inner类定义在Outer类的内部，相当于Outer类的一个成员变量的位置，Inner类可以使用任意访问控制符，如public，protected，private等
-Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不受访问控制符的影响，如直接访问Ou">
+    <meta name="description" content="object类的tostring();方法返回的是String(默认返回的是哈希地址)equals();方法(默认比较的的是对象的引用是否指向同一块内存地址);比较两个对象的内容是否相同需要重写
+接口：[修饰符]class 类名extends 父类implements接口1，接口2…..其中exte">
     
     
     
@@ -67,15 +66,15 @@ Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/29/Java内部类/" title="Java内部类" itemprop="url">Java内部类</a>
+      <a href="/2016/08/29/object类/" title="object类" itemprop="url">object类</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-08-29T03:55:12.000Z" itemprop="datePublished">2016-08-29</time>
-    更新日期:<time datetime="2016-08-29T05:49:08.036Z" itemprop="dateModified">2016-08-29</time>
+    <time datetime="2016-08-29T09:21:27.000Z" itemprop="datePublished">2016-08-29</time>
+    更新日期:<time datetime="2016-08-29T14:52:17.277Z" itemprop="dateModified">2016-08-29</time>
     
   </p>
 </header>
@@ -84,16 +83,13 @@ Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不�
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成员内部类的使用方法："><span class="toc-number">1.</span> <span class="toc-text">成员内部类的使用方法：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#友情提示："><span class="toc-number">2.</span> <span class="toc-text">友情提示：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态内部类："><span class="toc-number">3.</span> <span class="toc-text">静态内部类：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法内部类："><span class="toc-number">4.</span> <span class="toc-text">方法内部类：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一定要注意："><span class="toc-number">4.1.</span> <span class="toc-text">一定要注意：</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#接口："><span class="toc-number">1.</span> <span class="toc-text">接口：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实际应用中的经验与总结"><span class="toc-number">2.</span> <span class="toc-text">实际应用中的经验与总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java中字符串的不变性"><span class="toc-number">2.1.</span> <span class="toc-text">java中字符串的不变性</span></a></li></ol></li></ol>
 		</div>
 		
-		<p><img src="http://i2.buimg.com/1949/bda8a5c69ef05762.jpg" alt="内部类图"></p>
-<h1 id="成员内部类的使用方法："><a href="#成员内部类的使用方法：" class="headerlink" title="成员内部类的使用方法："></a>成员内部类的使用方法：</h1><ol>
-<li>inner类定义在Outer类的内部，相当于Outer类的一个成员变量的位置，Inner类可以使用任意访问控制符，如public，protected，private等</li>
-<li>Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不受访问控制符的影响，如直接访问Outer类中的私有属性a</li>
-<li>定义了成员内部类后，必须使用外部类对象来创建内部类对象，而不能直接去new一个内部类对象，即：内部类 对象名=外部类对象.new 内部类();</li>
-<li>编译上面的程序后，会发现产生了两个.class文件<br><img src="http://i2.buimg.com/1949/5ff40666453c0a5d.jpg" alt="tupian"><br>其中，第二个是外部类的.class文件，第一个是内部类的.class文件，即成员内部类.class文件总是这样：外部类$内部类名.class<h1 id="友情提示："><a href="#友情提示：" class="headerlink" title="友情提示："></a>友情提示：</h1>1.外部类是不能直接使用内部类的成员和方法的<br><img src="http://i1.buimg.com/1949/20a518651945065f.jpg" alt="tupian"><br>可先创建内部类的对象，然后通过内部类的对象来访问其成员变量和方法<br>2.如果外部类和内部类具有相同的成员变量或方法，内部类默认访问自己的成员变量或方法，如果要访问外部类的成员变量，可以使用this关键字。如：<br><img src="http://i1.buimg.com/1949/bf9bde01662a7e86.jpg" alt="tupian"><h1 id="静态内部类："><a href="#静态内部类：" class="headerlink" title="静态内部类："></a>静态内部类：</h1>静态内部类是static修饰的内部类，这种内部类的特点是：<br>1.静态内部类不能直接访问外部类的非静态成员，但可以通过new 外部类().成员的方式访问<br>2.如果外部类的静态成员与内部类的成员名称相同，可通过“<strong><em>类名.静态成员</em></strong>”访问外部类的静态成员；如果外部类的静态成员与内部类的成员名称不相同，则可通过“<strong>成员名</strong>”直接调用外部类的静态成员。<br>3.创建静态内部类的对象是，不需要外部类的对象，可以直接创建 <strong>内部类 对象名= new 内部类();</strong><br><img src="http://i1.buimg.com/1949/de6e378b708bcaf3.jpg" alt="tupain"><h1 id="方法内部类："><a href="#方法内部类：" class="headerlink" title="方法内部类："></a>方法内部类：</h1>方法内部类就是内部类定义在外部类的方法中，方法内部类只在该方法的内部可见，即只在该方法内可以使用。<br><img src="http://i1.buimg.com/1949/67faeb437b0375cb.jpg" alt="tupian"><h2 id="一定要注意："><a href="#一定要注意：" class="headerlink" title="一定要注意："></a>一定要注意：</h2><strong>由于方法内部类不能在外部类的方法以外的地方使用，因此方法内部类不能使用访问控制符和static修饰符</strong></li>
-</ol>
+		<p>object类的tostring();方法返回的是String(默认返回的是哈希地址)<br>equals();方法(默认比较的的是对象的引用是否指向同一块内存地址);<br>比较两个对象的内容是否相同需要重写</p>
+<h1 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h1><p>[修饰符]class 类名extends 父类implements接口1，接口2…..<br><strong>其中extends与implements的位置不能掉换</strong><br><em>如果要继承父类，继承父类必须在实现接口之前</em><br>如果继承抽象类，抽象类中的抽象方法必须被实现，除非子类也是抽象类可以不用实现抽象方法<br>异常：<br>！<a href="p style=&quot;text-align:center&quot; contentEditable=true&gt;&lt;a href=&quot;http://kekaoyun.com/f1cc3120b96f2185&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://i2.buimg.com/573140/1a806a8747d5482b.png&quot; alt=&quot;异常&quot;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;http://kekaoyun.com/4fdb75142b7bf3b4&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://i2.buimg.com/573140/5a9f566e7f39a154.png&quot; alt=&quot;异常2&quot;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;/p">tupian</a><br>catch块有多个是按子到父的顺序<br>finally语句块是try和catch语句块执行return语句并返回调用处之前才执行的<br>Java中的异常链</p>
+<h1 id="实际应用中的经验与总结"><a href="#实际应用中的经验与总结" class="headerlink" title="实际应用中的经验与总结"></a>实际应用中的经验与总结</h1><p><img src="http://i2.buimg.com/573140/1016c33059c88e28.png" alt="Markdown">)</p>
+<h2 id="java中字符串的不变性"><a href="#java中字符串的不变性" class="headerlink" title="java中字符串的不变性"></a>java中字符串的不变性</h2><p>String对象创建后则不能被修改，是不可变的，所谓的修改其实是创建了新的对象，所指向的内存空间不同。如下所示：！<a href="http://i2.buimg.com/573140/351c78c39f8f5dfd.jpg" target="_blank" rel="external">tupian</a><br>运行结果：<img src="http://i2.buimg.com/573140/664907905c76ca05.jpg" alt="ti"><br>1.通过String s1=”爱慕课”声明了一个字符串对象，S1存放到了字符串对象的引用，在内存中的存放也引用关系如下图：<img src="http://i2.buimg.com/573140/85aabd1b579a5194.png" alt="q">然后通过s1=”欢迎来到：”+s1;改变了字符串s1,其实质是创建了新的字符串，变量s1指向了新创建的字符串对象，如下：<img src="http://i2.buimg.com/573140/d173bcf5ff23024f.png" alt="tu"><br>2.一旦一个字符串在内存中创建，则这个字符串不可改变，如果需要一个可以改变的字符串，我们可以使用StringBuffer或者StringBuilder。<br>3.每次new一个字符串就是产生一个新的对象，即使两个字符串的内容相同，使用”==”比较时也为”False”，如果只是需要比较内容是否相同，应使用”equals()”方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -103,7 +99,7 @@ Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不�
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/08/29/Java内部类/" data-title="Java内部类 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/08/29/object类/" data-title="object类 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -112,19 +108,11 @@ Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/08/29/object类/" title="object类">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  object类</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/08/28/Hello/"  title="今天终于把自己的博客搭好了！">
+<a href="/2016/08/29/Java内部类/"  title="Java内部类">
  <strong>NEXT:</strong><br/> 
- <span>今天终于把自己的博客搭好了！
+ <span>Java内部类
 </span>
 </a>
 </div>
@@ -137,7 +125,7 @@ Inner类中定义的Test()方法可以直接访问Outer类中的数据，而不�
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成员内部类的使用方法："><span class="toc-number">1.</span> <span class="toc-text">成员内部类的使用方法：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#友情提示："><span class="toc-number">2.</span> <span class="toc-text">友情提示：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#静态内部类："><span class="toc-number">3.</span> <span class="toc-text">静态内部类：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#方法内部类："><span class="toc-number">4.</span> <span class="toc-text">方法内部类：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一定要注意："><span class="toc-number">4.1.</span> <span class="toc-text">一定要注意：</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#接口："><span class="toc-number">1.</span> <span class="toc-text">接口：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#实际应用中的经验与总结"><span class="toc-number">2.</span> <span class="toc-text">实际应用中的经验与总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java中字符串的不变性"><span class="toc-number">2.1.</span> <span class="toc-text">java中字符串的不变性</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
