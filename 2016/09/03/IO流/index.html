@@ -4,12 +4,13 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>今天终于把自己的博客搭好了！ | Mrs.Yu</title>
+    <title>IO流 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="目标：把小雨娶回家，哈哈">
+    <meta name="description" content="IO流（输入流，输出流）字节流，字符流
+1.字节流1）InputStream、OutputStreamInputStream抽象了应用程序读取数据的方式OutputStream抽象了应用程序写出数据的方式2）EOF = End 读到-1就读到结尾3）输入流基本方法int b = in.read();">
     
     
     
@@ -65,15 +66,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/28/Hello/" title="今天终于把自己的博客搭好了！" itemprop="url">今天终于把自己的博客搭好了！</a>
+      <a href="/2016/09/03/IO流/" title="IO流" itemprop="url">IO流</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-08-28T01:37:25.000Z" itemprop="datePublished">2016-08-28</time>
-    更新日期:<time datetime="2016-08-28T03:27:08.098Z" itemprop="dateModified">2016-08-28</time>
+    <time datetime="2016-09-03T00:34:37.000Z" itemprop="datePublished">2016-09-03</time>
+    更新日期:<time datetime="2016-09-03T01:27:02.312Z" itemprop="dateModified">2016-09-03</time>
     
   </p>
 </header>
@@ -82,25 +83,22 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IO流（输入流，输出流）"><span class="toc-number">1.</span> <span class="toc-text">IO流（输入流，输出流）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节流，字符流"><span class="toc-number">1.1.</span> <span class="toc-text">字节流，字符流</span></a></li></ol></li></ol>
 		</div>
 		
-		<p>目标：把小雨娶回家，哈哈</p>
+		<h1 id="IO流（输入流，输出流）"><a href="#IO流（输入流，输出流）" class="headerlink" title="IO流（输入流，输出流）"></a>IO流（输入流，输出流）</h1><h2 id="字节流，字符流"><a href="#字节流，字符流" class="headerlink" title="字节流，字符流"></a>字节流，字符流</h2><blockquote>
+<p>1.字节流<br>1）InputStream、OutputStream<br>InputStream抽象了应用程序读取数据的方式<br>OutputStream抽象了应用程序写出数据的方式<br>2）EOF = End 读到-1就读到结尾<br>3）输入流基本方法<br>int b = in.read();读取一个字节无符号填充到int低八位。-1是EOF<br>in.read(byte[] buf)<br>in.read(byte[] buf,int start,int size)<br>4)out,write(int b)写出一个byte到流，b得低八位</p>
+</blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/blog/">blog</a>
-  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/08/28/Hello/" data-title="今天终于把自己的博客搭好了！ | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/03/IO流/" data-title="IO流 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -110,18 +108,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/08/29/Java内部类/" title="Java内部类">
+ <a href="/2016/09/03/集合类/" title="集合类">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Java内部类</span>
+  集合类</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/08/27/postName/"  title="征婚">
+<a href="/2016/08/31/Javaweb开发/"  title="Javaweb开发">
  <strong>NEXT:</strong><br/> 
- <span>征婚
+ <span>Javaweb开发
 </span>
 </a>
 </div>
@@ -134,7 +132,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#IO流（输入流，输出流）"><span class="toc-number">1.</span> <span class="toc-text">IO流（输入流，输出流）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#字节流，字符流"><span class="toc-number">1.1.</span> <span class="toc-text">字节流，字符流</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">

@@ -4,12 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>今天终于把自己的博客搭好了！ | Mrs.Yu</title>
+    <title>关于自动装箱的问题 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="目标：把小雨娶回家，哈哈">
+    <meta name="description" content="Integer的自动拆装箱的有关问题
+（整型数-128到127的值的比较问题）例如以下代码：
+public class IntegerDemo{
+    public static void main(String []args){
+        Integer i1 = 100;
+       ">
     
     
     
@@ -65,15 +70,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/08/28/Hello/" title="今天终于把自己的博客搭好了！" itemprop="url">今天终于把自己的博客搭好了！</a>
+      <a href="/2016/09/03/关于自动装箱的问题/" title="关于自动装箱的问题" itemprop="url">关于自动装箱的问题</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-08-28T01:37:25.000Z" itemprop="datePublished">2016-08-28</time>
-    更新日期:<time datetime="2016-08-28T03:27:08.098Z" itemprop="dateModified">2016-08-28</time>
+    <time datetime="2016-09-03T09:16:13.000Z" itemprop="datePublished">2016-09-03</time>
+    更新日期:<time datetime="2016-09-03T09:47:37.814Z" itemprop="dateModified">2016-09-03</time>
     
   </p>
 </header>
@@ -82,17 +87,42 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#（整型数-128到127的值的比较问题）"><span class="toc-number">1.</span> <span class="toc-text">（整型数-128到127的值的比较问题）</span></a></li></ol>
 		</div>
 		
-		<p>目标：把小雨娶回家，哈哈</p>
+		<p>Integer的自动拆装箱的有关问题</p>
+<h1 id="（整型数-128到127的值的比较问题）"><a href="#（整型数-128到127的值的比较问题）" class="headerlink" title="（整型数-128到127的值的比较问题）"></a>（整型数-128到127的值的比较问题）</h1><p>例如以下代码：</p>
+<pre><code>public class IntegerDemo{
+    public static void main(String []args){
+        Integer i1 = 100;
+        Integer i2 = 100;
+        if(i1==i2){
+            System.out.println(&quot;i1==i2&quot;);}
+        else {
+            System.out.println(&quot;i1!=i2&quot;);    }
+        }
+        Integer i3 = 200;//此处的值&gt;127即是超过了一个字节-128~127byte而且这种现象只有字节才具有
+        Integer i4 = 200;
+        if(i3==i4)
+            System.out.println(&quot;i3==i4&quot;);
+        else
+            System.out.println(&quot;i3!=i4&quot;);
+</code></pre><p>}</p>
+<p>最后运行的结果是：<br><strong>i1==i2<br>i3!=i4</strong><br>分析造成这种现象的原因：在进行自动装箱时，编译器会使用Integer.valueOf()来创建Integer实例。<br>以下是Integer.valueOf()方法的源代码</p>
+<pre><code>public static Integer valueOf(int i){
+    assert IntegerCache.high &gt;=127;
+    if(i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)
+        return IntegerCache.cache[i +(-IntegerCache.low)];
+    return new Integr(i);
+}
+</code></pre><p><strong>现在可以解释以下代码：如果传入的Int在IntegerCache.low和IntegerCache.high之间，那就尝试看前面的缓存中有没有打过包的相同的值，如果有就直接返回，否则就创建一个Integer实例。IntegerCache.low默认是-128；IntegerCache.high默认是127</strong></p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/blog/">blog</a>
+  <span></span> <a href="/tags/我是Aurther/">我是Aurther</a>
   </div>
 
 
@@ -100,7 +130,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/08/28/Hello/" data-title="今天终于把自己的博客搭好了！ | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/03/关于自动装箱的问题/" data-title="关于自动装箱的问题 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -110,18 +140,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/08/29/Java内部类/" title="Java内部类">
+ <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  Java内部类</span>
+  Java中关于链表的总结</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/08/27/postName/"  title="征婚">
+<a href="/2016/09/03/集合类/"  title="集合类">
  <strong>NEXT:</strong><br/> 
- <span>征婚
+ <span>集合类
 </span>
 </a>
 </div>
@@ -134,7 +164,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#（整型数-128到127的值的比较问题）"><span class="toc-number">1.</span> <span class="toc-text">（整型数-128到127的值的比较问题）</span></a></li></ol>
   </div>
 
 <div id="asidepart">

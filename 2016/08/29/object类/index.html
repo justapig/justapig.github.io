@@ -74,7 +74,7 @@
     </p>
   <p class="article-time">
     <time datetime="2016-08-29T09:21:27.000Z" itemprop="datePublished">2016-08-29</time>
-    更新日期:<time datetime="2016-08-29T14:52:17.277Z" itemprop="dateModified">2016-08-29</time>
+    更新日期:<time datetime="2016-08-30T15:47:36.421Z" itemprop="dateModified">2016-08-30</time>
     
   </p>
 </header>
@@ -89,7 +89,7 @@
 		<p>object类的tostring();方法返回的是String(默认返回的是哈希地址)<br>equals();方法(默认比较的的是对象的引用是否指向同一块内存地址);<br>比较两个对象的内容是否相同需要重写</p>
 <h1 id="接口："><a href="#接口：" class="headerlink" title="接口："></a>接口：</h1><p>[修饰符]class 类名extends 父类implements接口1，接口2…..<br><strong>其中extends与implements的位置不能掉换</strong><br><em>如果要继承父类，继承父类必须在实现接口之前</em><br>如果继承抽象类，抽象类中的抽象方法必须被实现，除非子类也是抽象类可以不用实现抽象方法<br>异常：<br>！<a href="p style=&quot;text-align:center&quot; contentEditable=true&gt;&lt;a href=&quot;http://kekaoyun.com/f1cc3120b96f2185&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://i2.buimg.com/573140/1a806a8747d5482b.png&quot; alt=&quot;异常&quot;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;a href=&quot;http://kekaoyun.com/4fdb75142b7bf3b4&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://i2.buimg.com/573140/5a9f566e7f39a154.png&quot; alt=&quot;异常2&quot;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;/p">tupian</a><br>catch块有多个是按子到父的顺序<br>finally语句块是try和catch语句块执行return语句并返回调用处之前才执行的<br>Java中的异常链</p>
 <h1 id="实际应用中的经验与总结"><a href="#实际应用中的经验与总结" class="headerlink" title="实际应用中的经验与总结"></a>实际应用中的经验与总结</h1><p><img src="http://i2.buimg.com/573140/1016c33059c88e28.png" alt="Markdown">)</p>
-<h2 id="java中字符串的不变性"><a href="#java中字符串的不变性" class="headerlink" title="java中字符串的不变性"></a>java中字符串的不变性</h2><p>String对象创建后则不能被修改，是不可变的，所谓的修改其实是创建了新的对象，所指向的内存空间不同。如下所示：！<a href="http://i2.buimg.com/573140/351c78c39f8f5dfd.jpg" target="_blank" rel="external">tupian</a><br>运行结果：<img src="http://i2.buimg.com/573140/664907905c76ca05.jpg" alt="ti"><br>1.通过String s1=”爱慕课”声明了一个字符串对象，S1存放到了字符串对象的引用，在内存中的存放也引用关系如下图：<img src="http://i2.buimg.com/573140/85aabd1b579a5194.png" alt="q">然后通过s1=”欢迎来到：”+s1;改变了字符串s1,其实质是创建了新的字符串，变量s1指向了新创建的字符串对象，如下：<img src="http://i2.buimg.com/573140/d173bcf5ff23024f.png" alt="tu"><br>2.一旦一个字符串在内存中创建，则这个字符串不可改变，如果需要一个可以改变的字符串，我们可以使用StringBuffer或者StringBuilder。<br>3.每次new一个字符串就是产生一个新的对象，即使两个字符串的内容相同，使用”==”比较时也为”False”，如果只是需要比较内容是否相同，应使用”equals()”方法。</p>
+<h2 id="java中字符串的不变性"><a href="#java中字符串的不变性" class="headerlink" title="java中字符串的不变性"></a>java中字符串的不变性</h2><p>String对象创建后则不能被修改，是不可变的，所谓的修改其实是创建了新的对象，所指向的内存空间不同。如下所示：！<a href="http://i2.buimg.com/573140/351c78c39f8f5dfd.jpg" target="_blank" rel="external">tupian</a><br>运行结果：<img src="http://i2.buimg.com/573140/664907905c76ca05.jpg" alt="ti"><br>1.通过String s1=”爱慕课”声明了一个字符串对象，S1存放到了字符串对象的引用，在内存中的存放也引用关系如下图：<img src="http://i2.buimg.com/573140/85aabd1b579a5194.png" alt="q">然后通过s1=”欢迎来到：”+s1;改变了字符串s1,其实质是创建了新的字符串，变量s1指向了新创建的字符串对象，如下：<img src="http://i2.buimg.com/573140/d173bcf5ff23024f.png" alt="tu"><br>2.一旦一个字符串在内存中创建，则这个字符串不可改变，如果需要一个可以改变的字符串，我们可以使用StringBuffer或者StringBuilder。<br>3.每次new一个字符串就是产生一个新的对象，即使两个字符串的内容相同，使用”==”比较时也为”False”，如果只是需要比较内容是否相同，应使用”equals()”方法。<br>volatile boolean keepRunning;<br>(volatile保证了线程可以正确的读取其他线程写入的值//可见性)</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -108,6 +108,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/08/31/Javaweb开发/" title="Javaweb开发">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  Javaweb开发</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/08/29/Java内部类/"  title="Java内部类">
@@ -140,6 +148,8 @@
 		<ul class="clearfix">
 		
 			<li><a href="/tags/blog/" title="blog">blog<sup>1</sup></a></li>
+		
+			<li><a href="/tags/我是Aurther/" title="我是Aurther">我是Aurther<sup>1</sup></a></li>
 		
 			<li><a href="/tags/日志/" title="日志">日志<sup>1</sup></a></li>
 		
