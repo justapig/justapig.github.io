@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中关于链表的总结 | Mrs.Yu</title>
+    <title>JavaIO流 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="数据结构知识点总结：1.栈栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）栈的基本运算定义：①初始化栈：设置栈为空栈。②判断栈是否为空 empty()：若栈为空，则返回Tru">
+    <meta name="description" content="JavaIO流编码问题字节B&amp;amp;0xff就会将字节的前24为转换为0gbk编码中文占用2个字节，英文占用一个字节utf-8编码中中文占用3个字节，英文占用1个字节Java是双字节编码utf-16be，中英文都是占用2个字节File file = new File(“E:\javaio”);Sy">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结" itemprop="url">Java中关于链表的总结</a>
+      <a href="/2016/09/06/JavaIO流/" title="JavaIO流" itemprop="url">JavaIO流</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-04T01:39:40.000Z" itemprop="datePublished">2016-09-04</time>
-    更新日期:<time datetime="2016-09-04T02:03:28.344Z" itemprop="dateModified">2016-09-04</time>
+    <time datetime="2016-09-06T08:45:42.000Z" itemprop="datePublished">2016-09-06</time>
+    更新日期:<time datetime="2016-09-06T15:08:38.240Z" itemprop="dateModified">2016-09-06</time>
     
   </p>
 </header>
@@ -82,10 +82,11 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="数据结构知识点总结："><a href="#数据结构知识点总结：" class="headerlink" title="数据结构知识点总结："></a>数据结构知识点总结：</h1><h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><p>栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）<br><br>栈的基本运算定义：<br>①初始化栈：设置栈为空栈。<br>②判断栈是否为空 empty()：若栈为空，则返回True，否则返回False。<br>③取栈顶元素值 get_top(x)：若栈不为空，则将栈顶元素的值送入变量x中，否则返回False<br>④入栈push(x)：将值为x的元素插入到站顶。若插入前的栈已经满啦，不能入栈时，应报出错信息。<br>⑤出栈pop()：若栈不为空，删除当前栈顶元素，否则应返回出错信息。<br>⑥判断栈是否为满full()：若栈为满，返回true，否则返回false</p>
+		<p>JavaIO流<br>编码问题字节B&amp;0xff就会将字节的前24为转换为0<br>gbk编码中文占用2个字节，英文占用一个字节<br>utf-8编码中中文占用3个字节，英文占用1个字节<br>Java是双字节编码utf-16be，中英文都是占用2个字节<br>File file = new File(“E:\javaio”);<br>System.out.println(file.exists());<br>if(!file.exists()){<br>file.mkdir();<br>else<br>file.delete();<br>//是否是一个目录<br>System.out.println(file.isDirectory());<br>System.out.println(file.isFile());}<br>file.creteNewFile()//此方法会产生异常，需要捕捉或者声明<br>直接System.out.println(file)；会打印出file的路径==System.out.println(file.getAbsolutePath());file.getParent()//此处是父目录<br>遍历目录：<br>//列出指定目录包括其子目录的所有文件<br>一般会有异常所以在含有（File dir）对象时都需要thows<br>String []fileNames=file.list();//返回的是字符串数组<br>for(String string:fileNames){<br>System.out.println(dir+”\“+string);}<br>//如果要遍历子目录下的内容就需要构成File对象作递归操作，File提供了直接返回直接子目录的抽象<br>File[] files = dir.listFile();<br>RandomAccessFile java提供的对文件内容的访问，既可以读文件也可以写文件<br>RandomAccessFile支持随机访问文件，可以访问文件的任意位置<br>(1)Java文件模型<br>在硬盘上的文件是Byte Bye Byte存储的，是数据的集合<br>(2)打开文件<br>有两种模式”rw(读写)” “r(只读)”RandomAccessFile raf = new RandomeAccessFile(file,”rw”)<br>文件指针，打开文件时指针在开头pointer=0；<br>(3)写方法<br>raf.write(int)—&gt;只写一个字节(后8位)，同时指针指向下一个位置，准备在再次写入<br>(4)读方法<br>int b = raf.read()—&gt;读一个字节<br>(5)文件读写完成以后一定要关闭(Oracle官方说明)<br>注：RandomAccessFile是用来访问那些保存数据记录的文件的，可以用seek()方法来访问记录，并进行读写，并且RandomAccessFile不属于InputStream和OutputStream类系，它是一个完全独立的类，直接继承自Object类，只有RandomAccessFile才有seek搜寻方法，而这个方法也只适用于文件<br>raf.length()的结果是long型<br>读文件：<br>raf.seek(0);//读文件，必须把指针移到头部<br>byte[] buf = new byte[(int)raf.length()];//一次性读文件，把文件中的内容都堵到字节数组中<br>raf.read(buf);//直接把自己创造好的字节数组传入read方法中<br>System.out.println(Array.toString(buf));<br>String s1 = new String(buf);<br>System.out.println(s1);</p>
+<p>IO流（输入流输出流）<br>字节流、字符流<br>1InputStream、OutputStream，<br>InputStream抽象了应用程序读取数据的方式<br>OutputStream抽象了应用程序写出数据的方式<br>2EOF = End 读到-1就读到结尾<br>3输入流的基本方法（是读方法）<br>int b = in.read();读取一个字节无符号填充到int低八位，-1是EOF<br>in.read(byte[] buf)读取数据填充到字节数组<br>in.read(byte[]buf,int start,int size)<br>4<br>out.write(int b)写出一个byte到流，b的低八位<br>out.write(byte[] buf)将buf字节数组都写入到流<br>out.write(byte[] buf,int start,int size)<br>5FileInputStream—&gt;具体实现了</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -95,7 +96,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/09/04/Java中关于链表的总结/" data-title="Java中关于链表的总结 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/06/JavaIO流/" data-title="JavaIO流 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -105,18 +106,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/" title="MySQL服务无法启动，但是没有错误解决方法">
+ <a href="/2016/09/08/socket编程/" title="socket编程">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  MySQL服务无法启动，但是没有错误解决方法</span>
+  socket编程</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/03/关于自动装箱的问题/"  title="关于自动装箱的问题">
+<a href="/2016/09/05/Java中值传递与引用传递区别/"  title="Java中值传递与引用传递区别">
  <strong>NEXT:</strong><br/> 
- <span>关于自动装箱的问题
+ <span>Java中值传递与引用传递区别
 </span>
 </a>
 </div>
@@ -129,7 +130,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">

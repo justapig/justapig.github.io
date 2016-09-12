@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中关于链表的总结 | Mrs.Yu</title>
+    <title>二分查找 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="数据结构知识点总结：1.栈栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）栈的基本运算定义：①初始化栈：设置栈为空栈。②判断栈是否为空 empty()：若栈为空，则返回Tru">
+    <meta name="description" content="二分查找：又叫折半搜索、二分搜索，是一种在有序数组中查找某一特定元素的搜索算法。这种算法是建立在有序数组基础上的。算法思想：①搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；②如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结" itemprop="url">Java中关于链表的总结</a>
+      <a href="/2016/09/09/二分查找/" title="二分查找" itemprop="url">二分查找</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-04T01:39:40.000Z" itemprop="datePublished">2016-09-04</time>
-    更新日期:<time datetime="2016-09-04T02:03:28.344Z" itemprop="dateModified">2016-09-04</time>
+    <time datetime="2016-09-09T01:22:37.000Z" itemprop="datePublished">2016-09-09</time>
+    更新日期:<time datetime="2016-09-09T11:38:43.850Z" itemprop="dateModified">2016-09-09</time>
     
   </p>
 </header>
@@ -82,10 +82,10 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="数据结构知识点总结："><a href="#数据结构知识点总结：" class="headerlink" title="数据结构知识点总结："></a>数据结构知识点总结：</h1><h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><p>栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）<br><br>栈的基本运算定义：<br>①初始化栈：设置栈为空栈。<br>②判断栈是否为空 empty()：若栈为空，则返回True，否则返回False。<br>③取栈顶元素值 get_top(x)：若栈不为空，则将栈顶元素的值送入变量x中，否则返回False<br>④入栈push(x)：将值为x的元素插入到站顶。若插入前的栈已经满啦，不能入栈时，应报出错信息。<br>⑤出栈pop()：若栈不为空，删除当前栈顶元素，否则应返回出错信息。<br>⑥判断栈是否为满full()：若栈为满，返回true，否则返回false</p>
+		<p>二分查找：又叫折半搜索、二分搜索，是一种在有序数组中查找某一特定元素的搜索算法。<strong>这种算法是建立在有序数组基础上的。</strong><br>算法思想：<br>①搜索过程从数组的中间元素开始，如果中间元素正好是要查找的元素，则搜索过程结束；<br><br>②如果某一特定元素大于或者小于中间元素，则在数组大于或小于中间元素的那一半中查找，而且跟开始一样从中间元素开始比较。<br><br>③如果在某一步骤数组为空，则代表找不到<br><br>这种算法每一次比较都使搜索范围缩小一半。<br>实现思路：<br>1.找出位于数组中间的值，并存放在一个变量中(temp)；<br>2.需要找到的key和temp进行比较；<br>3.如果key值大于temp，则把数组中间位置作为下一次计算的起点；重复1，2<br>4.如果key值小于temp，则把数组中间位置作为下一次计算的终点；重复1，2，3<br>5.如果key值等于temp，则返回数组下表，完成查找。<br>递归方式的代码：<br>public static <e extends="" comparable<e="">&gt;int binarySearch(E[]array,int from,int to,E key)thows Exception{<br>if(from<0||to<0){ 0="" thow="" new="" illegalargumentexception("params="" from="" &length="" must="" larger="" than="" .");="" }="" if(from<="to){" int="" middle="(from">&gt;&gt;1)+(to&gt;&gt;&gt;1);//右移即除2<br>E temp = array[middle];<br>if(temp.compareTo(key)&gt;0){<br>to=middle-1;<br>}else if(temp.compareTo(key)&lt;0){<br>from = middle+1;}<br>else{<br>return middle;}}<br>return binarySearch(array,from,to,key);}</0||to<0){></e></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -95,7 +95,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/09/04/Java中关于链表的总结/" data-title="Java中关于链表的总结 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/09/二分查找/" data-title="二分查找 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -105,18 +105,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/" title="MySQL服务无法启动，但是没有错误解决方法">
+ <a href="/2016/09/10/Java中的运算符/" title="Java中的运算符">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  MySQL服务无法启动，但是没有错误解决方法</span>
+  Java中的运算符</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/03/关于自动装箱的问题/"  title="关于自动装箱的问题">
+<a href="/2016/09/08/socket编程/"  title="socket编程">
  <strong>NEXT:</strong><br/> 
- <span>关于自动装箱的问题
+ <span>socket编程
 </span>
 </a>
 </div>
@@ -129,7 +129,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">

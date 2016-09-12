@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中关于链表的总结 | Mrs.Yu</title>
+    <title>静态代码块，不同类中的静态代码块，构造代码块，构造方法 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="数据结构知识点总结：1.栈栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）栈的基本运算定义：①初始化栈：设置栈为空栈。②判断栈是否为空 empty()：若栈为空，则返回Tru">
+    <meta name="description" content="Java中的代码块、静态代码块、构造方法、main方法执行顺序执行顺序：优先级从高到低 ## 静态代码块&amp;gt;main方法&amp;gt;构造代码块&amp;gt;构造方法 ##其中静态代码块只执行一次，构造代码块在每次创建对象时都会执行。普通代码块在方法或语句中出现的就是，普通代码块和一般的语句执行顺序有代码编">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结" itemprop="url">Java中关于链表的总结</a>
+      <a href="/2016/09/05/静态代码块，不同类中的静态代码块，构造代码块，构造方法/" title="静态代码块，不同类中的静态代码块，构造代码块，构造方法" itemprop="url">静态代码块，不同类中的静态代码块，构造代码块，构造方法</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-04T01:39:40.000Z" itemprop="datePublished">2016-09-04</time>
-    更新日期:<time datetime="2016-09-04T02:03:28.344Z" itemprop="dateModified">2016-09-04</time>
+    <time datetime="2016-09-05T09:38:16.000Z" itemprop="datePublished">2016-09-05</time>
+    更新日期:<time datetime="2016-09-05T11:28:50.427Z" itemprop="dateModified">2016-09-05</time>
     
   </p>
 </header>
@@ -82,10 +82,10 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java中的代码块、静态代码块、构造方法、main方法执行顺序"><span class="toc-number">1.</span> <span class="toc-text">Java中的代码块、静态代码块、构造方法、main方法执行顺序</span></a></li></ol>
 		</div>
 		
-		<h1 id="数据结构知识点总结："><a href="#数据结构知识点总结：" class="headerlink" title="数据结构知识点总结："></a>数据结构知识点总结：</h1><h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><p>栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）<br><br>栈的基本运算定义：<br>①初始化栈：设置栈为空栈。<br>②判断栈是否为空 empty()：若栈为空，则返回True，否则返回False。<br>③取栈顶元素值 get_top(x)：若栈不为空，则将栈顶元素的值送入变量x中，否则返回False<br>④入栈push(x)：将值为x的元素插入到站顶。若插入前的栈已经满啦，不能入栈时，应报出错信息。<br>⑤出栈pop()：若栈不为空，删除当前栈顶元素，否则应返回出错信息。<br>⑥判断栈是否为满full()：若栈为满，返回true，否则返回false</p>
+		<h1 id="Java中的代码块、静态代码块、构造方法、main方法执行顺序"><a href="#Java中的代码块、静态代码块、构造方法、main方法执行顺序" class="headerlink" title="Java中的代码块、静态代码块、构造方法、main方法执行顺序"></a>Java中的代码块、静态代码块、构造方法、main方法执行顺序</h1><p>执行顺序：优先级从高到低 ## 静态代码块&gt;main方法&gt;构造代码块&gt;构造方法 ##<br>其中静态代码块只执行一次，构造代码块在每次创建对象时都会执行。<br>普通代码块在方法或语句中出现的就是，普通代码块和一般的语句执行顺序有代码编写的先后顺序，即先出现先执行<br>构造代码块直接在类中定义且没有Static修饰没有名字的代码块。并且构造代码块的执行顺序优于构造函数</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -95,7 +95,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/09/04/Java中关于链表的总结/" data-title="Java中关于链表的总结 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/05/静态代码块，不同类中的静态代码块，构造代码块，构造方法/" data-title="静态代码块，不同类中的静态代码块，构造代码块，构造方法 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -105,18 +105,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/" title="MySQL服务无法启动，但是没有错误解决方法">
+ <a href="/2016/09/05/Java中值传递与引用传递区别/" title="Java中值传递与引用传递区别">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  MySQL服务无法启动，但是没有错误解决方法</span>
+  Java中值传递与引用传递区别</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/03/关于自动装箱的问题/"  title="关于自动装箱的问题">
+<a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/"  title="MySQL服务无法启动，但是没有错误解决方法">
  <strong>NEXT:</strong><br/> 
- <span>关于自动装箱的问题
+ <span>MySQL服务无法启动，但是没有错误解决方法
 </span>
 </a>
 </div>
@@ -129,7 +129,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java中的代码块、静态代码块、构造方法、main方法执行顺序"><span class="toc-number">1.</span> <span class="toc-text">Java中的代码块、静态代码块、构造方法、main方法执行顺序</span></a></li></ol>
   </div>
 
 <div id="asidepart">

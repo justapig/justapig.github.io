@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中关于链表的总结 | Mrs.Yu</title>
+    <title>Java中的运算符 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="数据结构知识点总结：1.栈栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）栈的基本运算定义：①初始化栈：设置栈为空栈。②判断栈是否为空 empty()：若栈为空，则返回Tru">
+    <meta name="description" content="数值类型：整数：byte(1个字节)，short(2个字节)，int(4个字节)，long(8个字节)字符类型：char(2个字节)布尔类型：boolean(1个字节)数据类型转换图解注意下几点：1.byte无法自动转成char2.箭头左边类型可以自动转成右边类型，否则需要强制类型转换3.当算术表达">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结" itemprop="url">Java中关于链表的总结</a>
+      <a href="/2016/09/10/Java中的运算符/" title="Java中的运算符" itemprop="url">Java中的运算符</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-04T01:39:40.000Z" itemprop="datePublished">2016-09-04</time>
-    更新日期:<time datetime="2016-09-04T02:03:28.344Z" itemprop="dateModified">2016-09-04</time>
+    <time datetime="2016-09-10T11:47:24.000Z" itemprop="datePublished">2016-09-10</time>
+    更新日期:<time datetime="2016-09-10T15:19:06.202Z" itemprop="dateModified">2016-09-10</time>
     
   </p>
 </header>
@@ -82,10 +82,10 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+		
 		</div>
 		
-		<h1 id="数据结构知识点总结："><a href="#数据结构知识点总结：" class="headerlink" title="数据结构知识点总结："></a>数据结构知识点总结：</h1><h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><p>栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）<br><br>栈的基本运算定义：<br>①初始化栈：设置栈为空栈。<br>②判断栈是否为空 empty()：若栈为空，则返回True，否则返回False。<br>③取栈顶元素值 get_top(x)：若栈不为空，则将栈顶元素的值送入变量x中，否则返回False<br>④入栈push(x)：将值为x的元素插入到站顶。若插入前的栈已经满啦，不能入栈时，应报出错信息。<br>⑤出栈pop()：若栈不为空，删除当前栈顶元素，否则应返回出错信息。<br>⑥判断栈是否为满full()：若栈为满，返回true，否则返回false</p>
+		<p>数值类型：<br>整数：byte(1个字节)，short(2个字节)，int(4个字节)，long(8个字节)<br>字符类型：char(2个字节)<br>布尔类型：boolean(1个字节)<br>数据类型转换图解<br><img src="http://i4.buimg.com/573140/d95a2368dad3e9d1.png" alt="tupian"><br>注意下几点：<br>1.byte无法自动转成char<br>2.箭头左边类型可以自动转成右边类型，否则需要强制类型转换<br>3.当算术表达式包含多个类型时，会发生类型自动提升<br>a.byte,short,char都被提升到int<br>b.整个表达式提升到最高的那个类型<br>Java中的对象存储位置：<br>1.栈（stack）与堆（heap）都是用来在RAM中存放数据的地方。与C++不同，Java自动管理栈和堆，程序员不能直接的设置栈或堆。<br>2.栈的优势是，存取速度比堆要快仅次于直接位于CPU中的寄存器。但缺点是，存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。另外，栈数据可以共享，堆得优势是可以动态的分配内存大小，生存期也不必事先告诉编译器，Java的垃圾收集器会自动收走这些不再使用的数据，但缺点是，由于运行是动态分配内存，存取速度较慢。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -95,7 +95,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/09/04/Java中关于链表的总结/" data-title="Java中关于链表的总结 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/10/Java中的运算符/" data-title="Java中的运算符 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -104,19 +104,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/" title="MySQL服务无法启动，但是没有错误解决方法">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  MySQL服务无法启动，但是没有错误解决方法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/09/03/关于自动装箱的问题/"  title="关于自动装箱的问题">
+<a href="/2016/09/09/二分查找/"  title="二分查找">
  <strong>NEXT:</strong><br/> 
- <span>关于自动装箱的问题
+ <span>二分查找
 </span>
 </a>
 </div>
@@ -129,7 +121,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+  
   </div>
 
 <div id="asidepart">

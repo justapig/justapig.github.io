@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Java中关于链表的总结 | Mrs.Yu</title>
+    <title>socket编程 | Mrs.Yu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Mr.Quan">
     
-    <meta name="description" content="数据结构知识点总结：1.栈栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）栈的基本运算定义：①初始化栈：设置栈为空栈。②判断栈是否为空 empty()：若栈为空，则返回Tru">
+    <meta name="description" content="UDP传输： UDP协议（用户数据报协议）是无连接、不可靠、无序的以数据报作为传输的载体，进行数据传输时，首先需要将要传输的数据定义成数据报（Datagram），在数据报中指明数据所要达到的Socket（主机地址和端口号），然后再将数据报发送出去。DatagramPacket:表示数据报包Datag">
     
     
     
@@ -65,15 +65,15 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/04/Java中关于链表的总结/" title="Java中关于链表的总结" itemprop="url">Java中关于链表的总结</a>
+      <a href="/2016/09/08/socket编程/" title="socket编程" itemprop="url">socket编程</a>
   </h1>
   <p class="article-author">By
     
       <a href="http://yoursite.com" title="Mr.Quan">Mr.Quan</a>
     </p>
   <p class="article-time">
-    <time datetime="2016-09-04T01:39:40.000Z" itemprop="datePublished">2016-09-04</time>
-    更新日期:<time datetime="2016-09-04T02:03:28.344Z" itemprop="dateModified">2016-09-04</time>
+    <time datetime="2016-09-08T13:14:32.000Z" itemprop="datePublished">2016-09-08</time>
+    更新日期:<time datetime="2016-09-08T14:33:56.996Z" itemprop="dateModified">2016-09-08</time>
     
   </p>
 </header>
@@ -82,10 +82,11 @@
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP传输："><span class="toc-number">1.</span> <span class="toc-text">UDP传输： </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程实现基于UDP的编程"><span class="toc-number">1.1.</span> <span class="toc-text">编程实现基于UDP的编程</span></a></li></ol></li></ol>
 		</div>
 		
-		<h1 id="数据结构知识点总结："><a href="#数据结构知识点总结：" class="headerlink" title="数据结构知识点总结："></a>数据结构知识点总结：</h1><h2 id="1-栈"><a href="#1-栈" class="headerlink" title="1.栈"></a>1.栈</h2><p>栈（stack，S）是n各元素组成的有限序列，并且只能在一端插入和删除元素。栈具有后进先出或先进后出的特性。插入和删除元素的一端为栈顶（top）,另一端为栈底（bottom）<br><br>栈的基本运算定义：<br>①初始化栈：设置栈为空栈。<br>②判断栈是否为空 empty()：若栈为空，则返回True，否则返回False。<br>③取栈顶元素值 get_top(x)：若栈不为空，则将栈顶元素的值送入变量x中，否则返回False<br>④入栈push(x)：将值为x的元素插入到站顶。若插入前的栈已经满啦，不能入栈时，应报出错信息。<br>⑤出栈pop()：若栈不为空，删除当前栈顶元素，否则应返回出错信息。<br>⑥判断栈是否为满full()：若栈为满，返回true，否则返回false</p>
+		<h1 id="UDP传输："><a href="#UDP传输：" class="headerlink" title="UDP传输： "></a>UDP传输： <br></h1><p>UDP协议（用户数据报协议）是无连接、不可靠、无序的<br><br>以数据报作为传输的载体，进行数据传输时，首先需要将要传输的数据定义成数据报（Datagram），在数据报中指明数据所要达到的Socket（主机地址和端口号），然后再将数据报发送出去。<br><br>DatagramPacket:表示数据报包<br><br>DatagramSocket:进行端到端通信的类<br></p>
+<h2 id="编程实现基于UDP的编程"><a href="#编程实现基于UDP的编程" class="headerlink" title="编程实现基于UDP的编程"></a>编程实现基于UDP的编程<br></h2><p>服务器端编程实现步骤：<br><br>1.创建DatagramSocket，指定端口号<br><br>2.创建DatagramPacket<br><br>3.接收客户端发送的数据信息<br><br>4.读取数据<br><br>客户端实现步骤：<br><br>1.定义发送的信息<br><br>2.创建DatagramPacket，包含将要发送的信息<br><br>3.创建DatagramSocket<br><br>4.发送数据<br><br>UDP  Server<br><br>实现服务器端：<br><br>主函数：<br>1.//创建服务器端<br><br>DatagramSocket socket = new DatagramSocket(8800);//会抛出异常<br><br>//2.创建数据报，用于接收客户端发送的数据<br><br>byte[] data=new byte[1024];//创建字节数组，指定接收数据报的大小<br><br>DatagramPacket packet=new DatagramPacket(data,data.length);<br><br>//3.接受客户端发送的数据<br><br>socket.receive(packet);//此方法在接受到数据报之前会一直阻塞<br><br>//4.读取数据<br>String info=new String(data,0,packet.getLength());<br>//通过String中的方法字节数转换为0开始到结尾<br>System.out.println(“我是服务器”+info);<br><br>向客户端响应数据<br><br>//1.定义客户端的地址、端口号、数据<br><br>InetAddress address = packet.getAddress();<br><br>int port=packet.getPort();<br><br>byte[]data2=”欢迎您！”.getBytes();<br><br>//2.创建数据报，包含响应的数据信息<br><br>DatagramPacket packet2=new DataGramPacket<br>(data2,data2.length,address,port);<br><br>//3.响应客户端<br><br>socket.send(packet2);<br><br>//4.关闭服务器<br><br>socke.colse();<br><br>客户端的实现：<br><br>1.定义服务器的地址、服务器的端口号、数据<br><br>InetAddress adress=InetAddress.getByNmae(“localhost”);<br><br>int port=8800;<br><br>byte[] data=”用户名：admin;密码：123”.getByte();<br><br>//2.创建数据报，包含发送的数据信息<br><br>DatagramPacket packet=new DatagramPacket(data,data.length,address,port);<br><br>//3.创建DatagramPacket对象<br><br>DatagramScoket socket=new DatagramSocket();<br><br>//4.向服务器端发送数据<br><br>socket.send(packet);<br></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -95,7 +96,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2016/09/04/Java中关于链表的总结/" data-title="Java中关于链表的总结 | Mrs.Yu" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2016/09/08/socket编程/" data-title="socket编程 | Mrs.Yu" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -105,18 +106,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/09/04/MySQL服务无法启动，但是没有错误解决方法/" title="MySQL服务无法启动，但是没有错误解决方法">
+ <a href="/2016/09/09/二分查找/" title="二分查找">
   <strong>PREVIOUS:</strong><br/>
   <span>
-  MySQL服务无法启动，但是没有错误解决方法</span>
+  二分查找</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/09/03/关于自动装箱的问题/"  title="关于自动装箱的问题">
+<a href="/2016/09/06/JavaIO流/"  title="JavaIO流">
  <strong>NEXT:</strong><br/> 
- <span>关于自动装箱的问题
+ <span>JavaIO流
 </span>
 </a>
 </div>
@@ -129,7 +130,7 @@
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构知识点总结："><span class="toc-number">1.</span> <span class="toc-text">数据结构知识点总结：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-栈"><span class="toc-number">1.1.</span> <span class="toc-text">1.栈</span></a></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UDP传输："><span class="toc-number">1.</span> <span class="toc-text">UDP传输： </span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#编程实现基于UDP的编程"><span class="toc-number">1.1.</span> <span class="toc-text">编程实现基于UDP的编程</span></a></li></ol></li></ol>
   </div>
 
 <div id="asidepart">
